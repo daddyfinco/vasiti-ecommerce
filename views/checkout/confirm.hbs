@@ -1,0 +1,108 @@
+{{#extend "../layout"}}
+  {{#content "content"}}
+    <section id="cart_items">
+      <div class="container">
+        <div class="review-payment">
+          <h2>{{title}}</h2>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="table-responsive cart_info">
+              <table class="table table-condensed">
+                <thead>
+                  <tr class="cart_menu">
+                    <td class="image"></td>
+                    <td class="description">Product</td>
+                    <td class="price">Unit Price</td>
+                    <td class="quantity">Quantity</td>
+                    <td class="total">Total</td>
+                  </tr>
+                </thead>
+                <tbody>{{#each products as |product|}}{{var quantity = product.Quantity;}}{{var name = product.product_name;}}{{var productLink = '/cat/' + product.CategorySlug + '/' + product.ProductSlug;}}{{var unitPrice = product.ProductPrice;}}{{var productTotal = product.Total;}}
+                    <tr>
+                      <td class="cart_product"><a href="{{productLink}}"><img src="/img/products/{{product.Image}}" alt="{{name}}"></a></td>
+                      <td class="cart_description">
+                        <h4><a href="{{productLink}}">{{name}}</a></h4>
+                        <p>{{product.Description}}</p>
+                      </td>
+                      <td class="cart_price">
+                        <p>{{unitPrice + ' €'}}</p>
+                      </td>
+                      <td class="cart_quantity">
+                        <p>{{quantity}}</p>
+                      </td>
+                      <td class="cart_total">
+                        <p class="cart_total_price">{{productTotal + ' €'}}</p>
+                      </td>
+                    </tr>
+                  {{/each}}</tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="table-responsive cart_info">
+              <table class="table table-condensed dev-table">
+                <thead>
+                  <tr class="cart_menu">
+                    <td colspan="{{2}}">Delivery Address</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Fullname</td>
+                    <td>{{address.FullName}}</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{address.StreetAddress}}</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>{{address.PostCode + ' ' + address.City}}</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>{{address.Country}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tel</td>
+                    <td>{{address.Phone}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive cart_info">
+              <table class="table table-condensed dev-table">
+                <thead>
+                  <tr class="cart_menu">
+                    <td colspan="{{2}}">Summary</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Sub Total</td>
+                    <td>{{order.SubTotal + ' €'}}</td>
+                  </tr>
+                  <tr>
+                    <td>Discount</td>
+                    <td>{{order.Discount + ' €'}}</td>
+                  </tr>
+                  <tr class="shipping-cost">
+                    <td>Shipping Cost</td>{{#if order.ShippingFee == 0}}
+                      <td>Free</td>
+                    {{else}}
+                      <td>{{order.ShippingFee + ' €'}}</td>
+                    {{/if}}
+                  </tr>
+                  <tr>
+                    <td>Total</td>
+                    <td><span>{{order.Total + ' €'}}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /#cart_items-->
+  {{/content}}{{/extend}}

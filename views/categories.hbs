@@ -1,0 +1,23 @@
+{{#extend "layout"}}
+  {{#content "content"}}
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="features_items">
+            <h2 class="title text-center">Product Categories</h2>{{#if categories}}
+              {{#each categories as |category|}}
+                <div class="col-sm-3"><a href="/cat/{{category.CategorySlug}}">
+                    <div class="product-image-wrapper">
+                      <div class="single-products">
+                        <div class="productinfo text-center"><img src="/img/categories/{{category.Image}}" alt="{{category.CategoryName}}">
+                          <h2>{{category.CategoryName}}</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </a></div>
+              {{/each}}{{/if}}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/content}}{{/extend}}

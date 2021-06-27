@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--metadata-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="aStore Online">
+  <meta name="author" content="aStore. All rights Reserved">
+  <!--title-->
+  <title>{{title}}</title>
+  <!--stylesheet-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <!--favicon-->
+  <link rel="shortcut icon" href="/img/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/img/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+  <!--header-->
+  <header id="header">
+    <!--header_top-->
+    <div class="header_top">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="contactinfo">
+              <ul class="nav nav-pills">
+                <li><a href="#"><i class="fa fa-phone"></i> +2348146439559</a></li>
+                <li><a href="mailto:info@astore.com"><i class="fa fa-envelope"></i> info@astore.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="shop-menu pull-right">
+              <ul class="nav navbar-nav">{{var orderCus = 'Account'}}{{var link = '/sign-in'}}
+                {{#if customer}}
+                  {{var orderCus=customer.FullName}}{{var link='/usr/'}}
+                {{/if}}
+                <li><a href="{{link}}"><i class="fa fa-user"></i>{{orderCus}}</a></li>
+                <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                <!--li-->
+                <!--    a(href='/checkout')-->
+                <!--        i.fa.fa-money-->
+                <!--        |  Checkout-->{{#if customer}}
+                  <li><a href="/sign-out"><i class="fa fa-sign-out"></i> Logout</a></li>
+                {{/if}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/header_top-->
+    <!--header-middle-->
+    <div class="header-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="logo pull-left">
+              <a href="/"><img src="https://vasiti.com/img/site/logo.png" alt="aStore Logo">
+                <!--span a
+| Store
+i.fa.fa-shopping-cart-->
+              </a></div>
+          </div>
+          <div class="col-sm-8"></div>
+        </div>
+      </div>
+    </div>
+    <!--/header-middle-->
+    <!--header-bottom-->
+    <div class="header-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="navbar-header"><button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+            <div class="mainmenu pull-left">
+              <ul class="nav navbar-nav collapse navbar-collapse">
+                <li><a href="/" class="">Home</a></li>
+                <li><a href="/admin/products" class="">All Product</a></li>
+                <li><a href="/admin/products/add" class="">Add Product</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/header-bottom-->
+  </header>
+  <!--/header-->
+
+ {{{body}}}
+
+  <!--Footer-->
+  <footer id="footer">
+    <div class="footer-widget">
+      <div class="container">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <p class="pull-left">&copy 2021 Vasiti Inc. All rights reserved.</p>
+          <p class="pull-right">Efetobor Agbontaen</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/Footer-->
+  <script src="/js/jquery-2.1.4.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.scrollUp.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

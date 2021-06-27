@@ -1,0 +1,41 @@
+    <section>
+      <div class="container">
+        <div class="row">
+          <!--title here. no duplicate-->
+          <!--if navList-->
+          <div class="col-sm-3">
+            <!-- nav-bar-->
+            <div class="left-sidebar">
+              <div id="accordian" class="panel-group category-products">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/admin/cat">Categories</a></h4>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/admin/products">Products</a></h4>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/admin/orders">Orders</a></h4>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/admin/customers">Customers</a></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/nav-bar-->
+          </div>
+          <div class="col-sm-9">
+            <!--.single-blog-post-->{{#block "details"}}
+              <!--p Content-->
+            {{/block}}
+          </div>
+        </div>
+      </div>
+    </section>

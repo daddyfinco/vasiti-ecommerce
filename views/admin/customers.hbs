@@ -1,0 +1,38 @@
+{{#extend "admin"}}
+  {{#content "details"}}
+    <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Fullname</td>
+            <td>Email</td>
+            <td>Username</td>
+            <td>Admin</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>{{#each customers as |customer|}}
+            <tr>
+              <td>{{customer.UserID}}</td>
+              <td>{{customer.FullName}}</td>
+              <td>{{customer.Email}}</td>
+              <td>{{customer.Username}}</td>
+              <td>{{var admin = 'Yes'}}{{#if customer.Admin == 0}}
+                  {{admin = 'No'}}{{/if}}{{admin}}</td>
+              <!--a.btn.btn-default(href='/admin/customers/' + customer.UserID)
+    i.fa.fa-eye
+    = ' View'-->
+              <td>{{#if customer.Admin == 0}}
+                  <form action="/admin/customers/{{customer.UserID}}/makeAdmin" method="POST" class="dev-form"><button type="submit" class="cus-btn btn btn-default"><i class="fa fa-unlock"></i>{{' Make Admin'}}</button></form>
+                {{else}}
+                  <form action="/admin/customers/{{customer.UserID}}/removeAdmin" method="POST" class="dev-form"><button type="submit" class="cus-btn btn btn-default"><i class="fa fa-lock"></i>{{' Remove Admin'}}</button></form>
+                {{/if}}</td>
+              <td>
+                <form action="/admin/customers/{{customer.UserID}}/delete" method="POST" class="dev-form"><button type="submit" class="cus-btn btn btn-default"><i class="fa fa-trash-o"></i>{{' Delete'}}</button></form>
+              </td>
+            </tr>
+          {{/each}}</tbody>
+      </table>
+    </div>
+  {{/content}}{{/extend}}

@@ -1,0 +1,38 @@
+{{#extend "../layout"}}
+  {{#content "content"}}
+    <section id="cart_items">
+      <div class="container">
+        <div class="step-one">
+          <h2 class="heading">Delivery address</h2>
+        </div>
+        <div class="checkout-options">
+          <h3><i>Is the address you'd like to use displayed below?If so, click the corresponding "Deliver to this address" button.<br>Or you can enter a new address.</i></h3>
+        </div>
+        <div class="row">{{#if addresses}}
+            {{#each addresses as |address|}}
+              <div class="cus-name col-sm-4">
+                <h4>{{address.FullName}}</h4>
+                <p><span>{{address.StreetAddress}}</span><br><span>{{address.PostCode + ' ' + address.City}}</span><br><span>{{address.Country}}</span></p>
+                <p>{{'Tel: ' + address.Phone}}</p>
+                <form action="/checkout/delivery/{{address.AddressID}}" method="POST"><input type="submit" value="Deliver to this address" class="dev-btn btn btn-default add-to-cart"></form>
+              </div>
+            {{/each}}{{/if}}</div>
+        <div id="new-address" class="step-one">
+          <h2 class="heading">New delivery address</h2>
+        </div>
+        <div class="checkout-options">
+          <h3><i>Be sure to click "Ship to this address" when done.</i></h3>
+        </div>
+        <div class="shopper-informations">
+          <div class="row">
+            <div class="bill-to">
+              <form action="/checkout/delivery/new" method="POST">
+                <div class="col-sm-1 clearfix"></div>
+                <div class="col-sm-5 clearfix"><label for="fullName">Full name</label><input type="text" id="fullName" name="fullName"><br><label for="streetAddress">Street address</label><input type="text" name="streetAddress" id="streetAddress"><br><label for="postcode">Postal code</label><input type="text" name="postcode" id="postcode"><br><label for="city">City</label><input type="text" name="city" id="city"><br><label for="country">Country</label><input type="text" name="country" id="country"><br><label for="phone">Phone number</label><input type="tel" name="phone" id="phone"><br><br><input type="submit" value="Deliver to this address" class="dev-btn btn btn-default add-to-cart"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/content}}{{/extend}}

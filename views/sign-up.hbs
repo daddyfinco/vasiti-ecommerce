@@ -1,0 +1,46 @@
+{{#extend "layout"}}
+  {{#content "content"}}
+    <section id="form">
+      <!--form-->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <!-- nav-bar-->
+            <div class="left-sidebar">
+              <div id="accordian" class="panel-group category-products">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/sign-in">Sign in</a></h4>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/sign-up">Sign up</a></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/nav-bar-->
+          </div>
+          <div class="col-sm-5 text-center">
+            <!--sign up form-->
+            <div class="signup-form">
+              <h2>New User Signup!</h2>{{#if checkOutNoti}}
+                {{#if signUpError != ''}}
+                  <p>{{signUpError}}</p>
+                {{else}}
+                  <p>{{checkOutNoti}}</p>
+                {{/if}}
+              {{else}}
+                {{#if signUpError != ''}}
+                  <p>{{signUpError}}</p>
+                {{/if}}{{/if}}
+              <form id="sign-up" action="/sign-up" method="POST"><input type="text" name="fullName" placeholder="Full name" required><input type="email" name="email" placeholder="Email Address" required><input type="text" name="streetAddress" placeholder="Street Address" required><input type="text" name="postcode" placeholder="Postcode" required><input type="text" name="city" placeholder="City" required><input type="text" name="country" placeholder="Country" required><input type="tel" name="phone" placeholder="Phone number" required><input type="text" name="username" placeholder="Username" required><input type="password" name="password" placeholder="Password" required><input type="password" name="rePassword" placeholder="Password again" required><button type="submit" class="btn btn-default">Signup</button></form>
+            </div>
+            <!--/sign up form-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/form-->
+  {{/content}}{{/extend}}

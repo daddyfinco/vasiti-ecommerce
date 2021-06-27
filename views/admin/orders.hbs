@@ -1,0 +1,28 @@
+{{#extend "admin"}}
+  {{#content "details"}}
+    <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Date</td>
+            <td>Status</td>
+            <td>Total</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>{{#each orders as |order|}}
+            <tr>
+              <td>{{order.OrderID}}</td>
+              <td>{{order.OrderDate}}</td>
+              <td>{{order.Status}}</td>
+              <td>{{order.Total + ' €'}}</td>
+              <td>
+                <form action="/admin/orders/{{order.OrderID}}" method="GET" class="dev-form"><button type="submit" class="order-btn btn btn-default"><i class="fa fa-eye"></i>{{' View'}}</button></form>
+                <form action="/admin/orders/{{order.OrderID}}/update" method="GET" class="dev-form"><button type="submit" class="order-btn btn btn-default"><i class="fa fa-list"></i>{{' Update status'}}</button></form>
+              </td>
+            </tr>
+          {{/each}}</tbody>
+      </table>
+    </div>
+  {{/content}}{{/extend}}

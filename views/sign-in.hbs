@@ -1,0 +1,47 @@
+    <section id="form">
+      <!--form-->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <!-- nav-bar-->
+            <div class="left-sidebar">
+              <div id="accordian" class="panel-group category-products">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/sign-in">Sign in</a></h4>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><a href="/sign-up">Sign up</a></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 text-center">
+            <!--login form-->
+            <div class="login-form">
+              <h2>Sign in to your account</h2>{{#if checkOutNoti}}
+                {{#if signInError}}
+                  <p>{{signInError}}</p>
+                {{else}}
+                  <p>{{checkOutNoti}}</p>
+                {{/if}}
+              {{else}}
+                {{#if signInError}}
+                  <p>{{signInError}}</p>
+                {{/if}}{{/if}}
+              <form id="sign-in" action="/sign-in" method="POST"><input type="text" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password">
+                <!--<span>
+<input type="checkbox" class="checkbox">
+Keep me signed in
+</span>--><button type="submit" class="btn btn-default">Login</button>
+              </form>
+            </div>
+            <!--/login form-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/form-->

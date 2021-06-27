@@ -1,0 +1,5 @@
+{{#extend "admin"}}
+  {{#content "details"}}
+    <form id="editCat" action="/admin/cat/{{category.CategoryID}}/edit" method="POST"><label for="name">Category Name</label><br><input type="text" id="name" name="name" value="{{category.CategoryName}}" required><br><label for="description">Description</label><br><textarea id="description" name="description" required>{{category.Description}}</textarea><br><label for="image">Category Image</label><br>{{#if category.Image}}
+        <img src="/img/categories/{{category.Image}}" alt="{{category.CategoryName}}" class="dev-img">{{/if}}<input type="file" id="image" name="image"><br><button type="submit" class="dev-btn btn btn-default">Submit</button></form>
+  {{/content}}{{/extend}}

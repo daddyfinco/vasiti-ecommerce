@@ -1,0 +1,74 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <!--title here. no duplicate-->
+      <!--if navList-->
+      <div class="col-sm-3">
+        <!-- nav-bar-->
+        <div class="left-sidebar">
+          <div id="accordian" class="panel-group category-products">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="/admin/cat">Categories</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="/admin/products">Products</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="/admin/orders">Orders</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="/admin/customers">Customers</a></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/nav-bar-->
+      </div>
+      <div class="col-sm-9">
+
+        <form id="editVariety" action="/admin/products/{{variety.productId}}/{{variety.id}}/edit-variety" method="POST" enctype="multipart/form-data">
+          <table class="table table-condensed">
+            <tbody>
+
+            <tr>
+              <td><label for="size">Size</label><br></td>
+              <td><input type="text" id="size" name="size" value="{{variety.size}}" placeholder="Product Name" required><br></td>
+            </tr>
+
+            <tr>
+              <td><label for="color">Color</label><br></td>
+              <td><input type="text" id="color" name="color" value="{{variety.color}}" placeholder="White" required><br></td>
+            </tr>
+
+            <tr>
+              <td><label for="quantity">Quantity</label><br></td>
+              <td><input type="text" value="{{variety.quantity}}" id="quantity" name="quantity" placeholder="12" required><br></td>
+            </tr>
+
+            <tr>
+              <td><label for="image">Image</label><br></td>
+              <td><input type="file" id="image" name="images" multiple></td>
+            </tr>
+
+            <tr>
+              <td><label for="price">Price</label><br></td>
+              <td><input type="text" id="price" name="price" value="{{variety.price}}" placeholder="1000" required><br></td>
+            </tr>
+
+            <tr>
+              <td> <button type="submit" class="btn btn-default">Submit</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

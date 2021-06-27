@@ -1,0 +1,87 @@
+<section id="cart_items">
+  <div class="container">
+    <div class="row">
+      <h2 class="title text-center">Shopping Cart</h2>
+      <div class="table-responsive cart_info">
+        <table class="table table-condensed">
+          <thead>
+          <tr class="cart_menu">
+            <td class="image"></td>
+            <td class="description">Product</td>
+            <td class="price">Unit Price</td>
+            <td class="quantity">Quantity</td>
+            <td class="total">Total</td>
+            <td></td>
+          </tr>
+          </thead>
+          <tbody>{{#ifEqual cart null}}
+            <tr>
+              <td></td>
+              <td colspan="3">
+                <h4>No Product in Cart Currently</h4>
+              </td>
+            </tr>
+          {{else}}
+            {{#each cart as |item|}}
+            <tr>
+              <td class="cart_product">
+                <a href="'/cat/'{{item.CategorySlug}}'/'{{item.ProductSlug}}">
+                  <img src="/img/products/{{item.Image}}" alt="{{item.product_name}}"></a></td>
+              <td class="cart_description">
+                <h4><a href="{{productLink}}">{{item.product_name}}</a></h4>
+                <p>{{item.Description}}</p>
+              </td>
+              <td class="cart_price">
+                <p>₦ {{item.ProductPrice}}</p>
+              </td>
+              <td class="cart_quantity">
+                <div class="cart_quantity_button">
+                  <form action="/cart/{{item.ProductID}}/update" method="POST">
+                    <input type="text" name="{{item.ProductID}}" value="{{item.quantity}}" autocomplete="off" size="2" class="cart_quantity_input"></form>
+                </div>
+              </td>
+              <td class="cart_total">
+                <p class="cart_total_price">₦ {{item.productTotal}}</p>
+              </td>
+              <td class="cart_delete">
+                <form action="/cart/{{item.ProductID}}/delete" method="POST"><button type="submit" class="cart_quantity_delete"><i class="fa fa-times"></i></button></form>
+              </td>
+            </tr>
+            {{/each}}
+          {{/ifEqual}}
+          {{#if summary}}
+            <tr>
+              <td colspan="4"></td>
+              <td colspan="2">
+                <table class="table table-condensed total-result">
+                  <thead>
+                  <tr class="cart_menu">
+                    <td colspan="{{2}}">Summary</td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Sub Total</td>
+                    <td>₦ {{summary.subTotal}}</td>
+                  </tr>
+                  <tr>
+                    <td>Discount</td>
+                    <td>₦ {{summary.discount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total</td>
+                    <td><span>₦ {{summary.total}}</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="{{2}}" class="text-right"><a href="/checkout" class="btn btn-default check_out">Check Out</a></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          {{/if}}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+{{#extend "layout"}}
+  {{#content "content"}}
+    <section>
+      <div class="container">
+        <div class="row">
+          <h2 class="title text-center">{{title}}</h2>
+          <!--title here. no duplicate-->
+          <!--if navList-->
+          <div class="col-sm-3">
+            <!-- nav-bar-->
+            <div class="left-sidebar">
+              <div id="accordian" class="panel-group category-products">{{#each navList as |nav|}}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#">{{nav.name}}</a></h4>
+                    </div>
+                  </div>
+                {{/each}}</div>
+            </div>
+            <!--/nav-bar-->
+          </div>
+          <div class="col-sm-9">
+            <div class="blog-post-area">
+              <div class="single-blog-post">
+                <!--h2= title-->
+                <h3>UNDER CONSTRUCTION</h3>
+                <!--img(src='#', alt='Image')-->
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><br><br><br><br><br><br><br><br><br><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/content}}{{/extend}}
